@@ -83,7 +83,7 @@ const Navbar = () => {
             color: "#000",
             transition: { type: "spring", stiffness: 300 },
           }}
-          className="rounded-full px-4 py-2 h-10 bg-black text-white border border-black"
+          className="rounded-full px-4 py-2 h-10 hover:cursor-pointer bg-black text-white border border-black"
         >
           BUY NOW
         </motion.button>
@@ -92,7 +92,7 @@ const Navbar = () => {
           whileHover={{ rotate: 45, scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <MdArrowOutward className="text-[42px] p-2 text-white bg-black rounded-full" />
+          <MdArrowOutward className="text-[42px] p-2 text-white hover:cursor-pointer bg-black rounded-full" />
         </motion.div>
       </motion.div>
     </motion.nav>
