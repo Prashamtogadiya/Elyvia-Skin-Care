@@ -20,7 +20,7 @@ const Navbar = () => {
         initial={{ opacity: 0, x: -140 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 ml-24"
       >
         <h1 className="font-libre text-4xl font-medium leading-none">Elyvia</h1>
         <motion.span
@@ -74,7 +74,7 @@ const Navbar = () => {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        className="font-opensans flex items-center gap-1"
+        className="font-opensans flex items-center gap-1 mr-12"
       >
         <motion.button
           whileHover={{
