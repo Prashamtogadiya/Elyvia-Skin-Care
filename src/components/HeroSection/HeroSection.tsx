@@ -1,4 +1,5 @@
 import { GoArrowUpRight } from "react-icons/go";
+import { motion } from "framer-motion";
 import curvedImage from "../../assets/Gemini_Generated_Image_7omgwm7omgwm7omg.png";
 import blankImage from "../../assets/Gemini_Generated_Image_i588kyi588kyi588.png";
 import Avatar from "@mui/material/Avatar";
@@ -9,10 +10,39 @@ import avatar3 from "../../assets/avatar-3.jpg";
 import { MdArrowOutward } from "react-icons/md";
 
 const HeroSection = () => {
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.08 } },
+  };
+  const fromLeft = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+  const fromRight = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+  const pop = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.45 },
+    },
+  };
+
   return (
     <>
-      {/* ================= DESKTOP (fixed layout) ================= */}
-      <section
+      {/* ============ DESKTOP ============ */}
+      <motion.section
         id="hero-container"
         className="relative mx-auto mt-1 h-[700px] overflow-hidden hidden lg:block"
         style={{
@@ -20,11 +50,15 @@ const HeroSection = () => {
           maxWidth: "1490px",
           width: "100%",
         }}
+        variants={container}
+        initial="hidden"
+        animate="visible"
       >
         {/* left section */}
-        <div
+        <motion.div
           className="absolute top-0 left-66 mt-13 z-10"
           style={{ maxWidth: "500px" }}
+          variants={fromLeft}
         >
           <button className="border-2 border-gray-400 rounded-full px-4 py-2 flex gap-2 mb-8">
             All Glow In One Solution
@@ -50,139 +84,225 @@ const HeroSection = () => {
               ></path>
             </svg>
           </button>
-        </div>
+        </motion.div>
 
-        <p
+        <motion.p
           className="text-[92px] w-[800px] z-50 mt-26 absolute left-66 font-medium font-libre leading-none"
-          style={{
-            paddingRight: "100px",
-          }}
+          style={{ paddingRight: "100px" }}
+          variants={fromLeft}
         >
           Empowering
           <br />
           Confidence In
           <br />
           Your Skin
-        </p>
+        </motion.p>
 
-        <p className="font-medium opacity-60 absolute left-66 top-96 z-50">
+        <motion.p
+          className="font-medium opacity-60 absolute left-66 top-96 z-50"
+          variants={fromLeft}
+        >
           Discover skincare designed to nourish, <br />protect, and reveal your
           natural glow.
-        </p>
+        </motion.p>
 
-        <AvatarGroup max={3} className="absolute left-66 top-112 z-50">
-          <Avatar alt="Remy Sharp" src={avatar1} />
-          <Avatar alt="Travis Howard" src={avatar2} />
-          <Avatar alt="Cindy Baker" src={avatar3} />
-        </AvatarGroup>
+        <motion.div className="absolute left-66 top-112 z-50" variants={fromLeft}>
+          <AvatarGroup max={3}>
+            <Avatar alt="Remy Sharp" src={avatar1} />
+            <Avatar alt="Travis Howard" src={avatar2} />
+            <Avatar alt="Cindy Baker" src={avatar3} />
+          </AvatarGroup>
+        </motion.div>
 
-        <p className="text-3xl transform scale-y-85 tracking-tight font-libre absolute z-50 opacity-80 left-96 top-113">
+        <motion.p
+          className="text-3xl transform scale-y-85 tracking-tight font-libre absolute z-50 opacity-80 left-96 top-113"
+          variants={pop}
+        >
           1.5K Members
-        </p>
+        </motion.p>
 
-        <button className=" text-2xl font-libre absolute left-66 top-125 bg-black/80 text-gray-300 rounded-full px-7 py-2">
+        <motion.button
+          className=" text-2xl font-libre absolute left-66 top-125 bg-black/80 text-gray-300 rounded-full px-7 py-2"
+          variants={pop}
+          whileHover={{ scale: 1.03 }}
+        >
           EXPLORE MORE
-        </button>
-        <MdArrowOutward className="text-[46px] p-2 absolute left-114 top-125 text-white hover:cursor-pointer bg-black/80 rounded-full" />
+        </motion.button>
+        <motion.div
+          className="absolute left-114 top-125"
+          variants={pop}
+          whileHover={{ rotate: 20 }}
+        >
+          <MdArrowOutward className="text-[46px] p-2 text-white hover:cursor-pointer bg-black/80 rounded-full" />
+        </motion.div>
 
         {/* right section */}
-        <div className="absolute right-25 top-0 h-full">
-          <img
+        <motion.div className="absolute right-25 top-0 h-full" variants={fromRight}>
+          <motion.img
             src={curvedImage}
             className="h-[630px] w-[930px] z-50 object-contain"
             alt="Skincare model"
-            style={{
-              top: "40px",
-              right: "40px",
-            }}
+            style={{ top: "40px", right: "40px" }}
+            variants={fromRight}
+            initial="hidden"
+            animate="visible"
           />
 
           <div>
-            <GoArrowUpRight className="text-[54px] absolute right-172 top-137 p-2 text-white hover:cursor-pointer rounded-full bg-white/20 backdrop-blur-sm" />
-            <p className="text-white font-libre text-4xl absolute right-109 top-137">
+            <motion.div
+              className="absolute right-172 top-137"
+              variants={pop}
+              whileHover={{ scale: 1.03 }}
+            >
+              <GoArrowUpRight className="text-[54px] p-2 text-white rounded-full bg-white/20 backdrop-blur-sm" />
+            </motion.div>
+            <motion.p
+              className="text-white font-libre text-4xl absolute right-109 top-137"
+              variants={fromRight}
+            >
               Take Care Your Skin
-            </p>
-            <p className="text-white font-libre text-1xl absolute right-136.5 opacity-75 top-146">
+            </motion.p>
+            <motion.p
+              className="text-white font-libre text-1xl absolute right-136.5 opacity-75 top-146"
+              variants={fromRight}
+            >
               See Our Latest Products
-            </p>
+            </motion.p>
           </div>
 
           <div>
-            <img
+            <motion.img
               src={blankImage}
               className="h-[180px] absolute right-15 top-112"
               alt=""
+              variants={fromRight}
+              whileHover={{ scale: 1.02 }}
             />
-            <GoArrowUpRight className="text-[51px] absolute right-18 top-113 p-2 text-white hover:cursor-pointer rounded-full bg-black/80" />
-            <p className="absolute right-47 top-119 font-libre text-3xl text-white">
+            <motion.div
+              className="absolute right-18 top-113"
+              variants={pop}
+            >
+              <GoArrowUpRight className="text-[51px] p-2 text-white rounded-full bg-black/80" />
+            </motion.div>
+            <motion.p
+              className="absolute right-47 top-119 font-libre text-3xl text-white"
+              variants={fromRight}
+            >
               Best Selling <br /> Products
-            </p>
-            <p className="absolute right-34 top-139 text-gray-400 tracking-tighter text-md">
+            </motion.p>
+            <motion.p
+              className="absolute right-34 top-139 text-gray-400 tracking-tighter text-md"
+              variants={fromRight}
+            >
               Our most loved skincare for <br /> real result and daily glow
-            </p>
+            </motion.p>
           </div>
 
           <div>
-            <button className="border-2 font-libre absolute right-80 top-16 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2">
+            <motion.button
+              className="border-2 font-libre absolute right-80 top-16 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2"
+              variants={pop}
+              whileHover={{ scale: 1.03 }}
+            >
               BEAUTY & CARE
-            </button>
-            <button className="border-2 font-libre absolute right-27 top-16 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2">
+            </motion.button>
+            <motion.button
+              className="border-2 font-libre absolute right-27 top-16 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2"
+              variants={pop}
+              whileHover={{ scale: 1.03 }}
+            >
               SKINCARE & HARDCARE
-            </button>
-            <button className="border-2 font-libre absolute right-27 top-30 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2">
+            </motion.button>
+            <motion.button
+              className="border-2 font-libre absolute right-27 top-30 bg-white/20 backdrop-blur-xs text-white border-gray-400 rounded-full px-7 py-2"
+              variants={pop}
+              whileHover={{ scale: 1.03 }}
+            >
               PRODUCT & REVIEWS
-            </button>
+            </motion.button>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      {/* ================= MOBILE/TABLET (responsive clean) ================= */}
-      <section className="flex flex-col items-center justify-center text-center p-5 gap-5 lg:hidden">
+      {/* ============ MOBILE ============ */}
+      <motion.section
+        className="flex flex-col items-center justify-center text-center p-5 gap-5 lg:hidden"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         {/* top button */}
-        <button className="border-2 border-gray-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 text-sm sm:text-base">
+        <motion.button
+          className="border-2 border-gray-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 text-sm sm:text-base"
+          whileHover={{ scale: 1.03 }}
+        >
           All Glow In One Solution
           <GoArrowUpRight color="#fba770" size={20} />
-        </button>
+        </motion.button>
 
         {/* heading */}
-        <h1 className="text-[34px] sm:text-[46px] font-libre font-medium leading-tight">
+        <motion.h1
+          className="text-[34px] sm:text-[46px] font-libre font-medium leading-tight"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+        >
           Empowering
           <br />
           Confidence In
           <br />
           Your Skin
-        </h1>
+        </motion.h1>
 
-        <p className="text-gray-500 text-sm sm:text-base mb-3">
+        <motion.p
+          className="text-gray-500 text-sm sm:text-base mb-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.08 }}
+        >
           Discover skincare designed to nourish, protect, and reveal your glow.
-        </p>
+        </motion.p>
 
         {/* image */}
-        <img
+        <motion.img
           src={curvedImage}
           alt="Skincare model"
           className="w-[90%] max-w-[400px] object-contain rounded-xl"
+          whileHover={{ scale: 1.02 }}
         />
 
         {/* stacked info */}
-        <div className="text-white bg-black/80 rounded-2xl py-6 px-4 w-[90%] max-w-[400px]">
-          <GoArrowUpRight className="text-[36px] mx-auto mb-2 bg-white/20 p-2 rounded-full" />
-          <p className="font-libre text-2xl mb-1">Take Care Your Skin</p>
-          <p className="opacity-70 mb-4 text-sm">See Our Latest Products</p>
+        <motion.div
+          className="text-white bg-black/80 rounded-2xl py-6 px-4 w-[90%] max-w-[400px]"
+          initial="hidden"
+          animate="visible"
+          variants={container}
+        >
+          <motion.div className="mx-auto mb-2" variants={pop}>
+            <GoArrowUpRight className="text-[36px] bg-white/20 p-2 rounded-full" />
+          </motion.div>
+          <motion.p className="font-libre text-2xl mb-1" variants={fromLeft}>
+            Take Care Your Skin
+          </motion.p>
+          <motion.p className="opacity-70 mb-4 text-sm" variants={fromLeft}>
+            See Our Latest Products
+          </motion.p>
 
-          <img
+          <motion.img
             src={blankImage}
             className="h-[120px] mx-auto mb-3 rounded-lg"
             alt="product"
+            variants={pop}
           />
-          <p className="font-libre text-xl text-white mb-1">
+          <motion.p className="font-libre text-xl text-white mb-1" variants={fromLeft}>
             Best Selling Products
-          </p>
-          <p className="text-gray-400 text-sm">
+          </motion.p>
+          <motion.p className="text-gray-400 text-sm" variants={fromLeft}>
             Our most loved skincare for real results and daily glow
-          </p>
-        </div>
-      </section>
+          </motion.p>
+        </motion.div>
+      </motion.section>
     </>
   );
 };
