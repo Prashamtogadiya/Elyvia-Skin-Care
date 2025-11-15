@@ -157,13 +157,13 @@ const HeroSection = () => {
               <GoArrowUpRight className="text-[54px] p-2 text-white rounded-full bg-white/20 backdrop-blur-sm" />
             </motion.div>
             <motion.p
-              className="text-white font-libre text-4xl absolute right-109 top-137"
+              className="text-white font-libre text-4xl absolute right-109 top-136"
               variants={fromRight}
             >
               Take Care Your Skin
             </motion.p>
             <motion.p
-              className="text-white font-libre text-1xl absolute right-136.5 opacity-75 top-146"
+              className="text-white font-libre text-1xl absolute right-136.5 opacity-75 top-145"
               variants={fromRight}
             >
               See Our Latest Products
@@ -185,13 +185,13 @@ const HeroSection = () => {
               <GoArrowUpRight className="text-[51px] p-2 text-white rounded-full bg-black/80" />
             </motion.div>
             <motion.p
-              className="absolute right-47 top-119 font-libre text-3xl text-white"
+              className="absolute right-46 top-118 font-libre text-3xl text-white"
               variants={fromRight}
             >
               Best Selling <br /> Products
             </motion.p>
             <motion.p
-              className="absolute right-34 top-139 text-gray-400 tracking-tighter text-md"
+              className="absolute right-31 top-139 text-gray-400 tracking-tighter text-md"
               variants={fromRight}
             >
               Our most loved skincare for <br /> real result and daily glow
