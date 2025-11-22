@@ -58,7 +58,6 @@ export default function ProductsSection() {
             >
               <div>
                 <div className="w-20 h-20 rounded-xl bg-white/60 mb-4 flex items-center justify-center">
-                  {/* placeholder image/icon */}
                   <MdShoppingBasket className="text-2xl text-black" />
                 </div>
                 <h3 className="font-libre text-xl font-medium">{p.name}</h3>

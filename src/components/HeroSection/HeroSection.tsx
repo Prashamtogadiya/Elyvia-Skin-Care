@@ -41,7 +41,6 @@ const HeroSection = () => {
 
   return (
     <>
-      {/* ============ DESKTOP ============ */}
       <motion.section
         id="hero-container"
         className="relative mx-auto mt-1 h-[700px] overflow-hidden hidden lg:block"
@@ -54,7 +53,6 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* left section */}
         <motion.div
           className="absolute top-0 left-66 mt-13 z-10"
           style={{ maxWidth: "500px" }}
@@ -136,7 +134,6 @@ const HeroSection = () => {
           <MdArrowOutward className="text-[46px] p-2 text-white hover:cursor-pointer bg-black/80 rounded-full" />
         </motion.div>
 
-        {/* right section */}
         <motion.div className="absolute right-25 top-0 h-full" variants={fromRight}>
           <motion.img
             src={curvedImage}
@@ -224,7 +221,6 @@ const HeroSection = () => {
         </motion.div>
       </motion.section>
 
-      {/* ============ MOBILE ============ */}
       <motion.section
         className="flex flex-col items-center justify-center text-center p-5 gap-5 lg:hidden"
         initial={{ opacity: 0, y: 12 }}
@@ -232,7 +228,6 @@ const HeroSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        {/* top button */}
         <motion.button
           className="border-2 border-gray-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 text-sm sm:text-base"
           whileHover={{ scale: 1.03 }}
@@ -241,7 +236,6 @@ const HeroSection = () => {
           <GoArrowUpRight color="#fba770" size={20} />
         </motion.button>
 
-        {/* heading */}
         <motion.h1
           className="text-[34px] sm:text-[46px] font-libre font-medium leading-tight"
           initial={{ opacity: 0, y: 6 }}
@@ -264,7 +258,6 @@ const HeroSection = () => {
           Discover skincare designed to nourish, protect, and reveal your glow.
         </motion.p>
 
-        {/* image */}
         <motion.img
           src={curvedImage}
           alt="Skincare model"
@@ -272,7 +265,6 @@ const HeroSection = () => {
           whileHover={{ scale: 1.02 }}
         />
 
-        {/* stacked info */}
         <motion.div
           className="text-white bg-black/80 rounded-2xl py-6 px-4 w-[90%] max-w-[400px]"
           initial="hidden"
